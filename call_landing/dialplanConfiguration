@@ -1,3 +1,4 @@
+[first-context]
 exten => changeme,1,answer()
 exten => changeme,n,NoOp(Testing web integration)
 exten => changeme,n,NoOp(Phone number is ${CALLERID(num)})
@@ -7,4 +8,8 @@ exten => changeme,n,GotoIf($["${user}" != ""]?route1)
 exten => changeme,n,GotoIf($["${user}" = ""]?route2)
 exten => changeme,n(route1),AGI(agi-VDAD_ALL_inbound.agi,CIDLOOKUP-----SO-----${user}----------${CALLERID(num)}-----park----------999---------------${user})
 exten => changeme,n(route2),AGI(agi-VDAD_ALL_inbound.agi,CIDLOOKUP-----SO-----MainIngroup----------${CALLERID(num)}-----park----------999----------)
+exten => changeme,n,Hangup()
+
+[second-context]
+exten => changeme,1,AGI(agi-VDAD_ALL_inbound.agi,CIDLOOKUP-----SO-----MainIngroup----------${CALLERID(num)}-----park----------999----------)
 exten => changeme,n,Hangup()
