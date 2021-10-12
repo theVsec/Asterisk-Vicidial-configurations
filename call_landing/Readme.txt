@@ -1,4 +1,4 @@
-In this folder you will find a pice of asterisk dialplan code and a script in PHP to be able to grab the last user who talked with the number calling.
+In this folder you will find a piece of asterisk dialplan code and a script in PHP to be able to grab the last user who talked with the number calling.
 
 To make the changes you should take these steps:
 
